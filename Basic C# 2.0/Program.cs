@@ -7,6 +7,16 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args) // Объявление метода Main
         {
+           
+            var array = GetArrayFromConsole(10);
+            var sortedarray = SortArrey(array);
+            ShowArray(array, true);
+
+
+            Console.ReadKey();
+        }
+        static void Trash()
+        {
             var (name, age) = ("Евгений", 27);
             Console.WriteLine("Ваше имя: {0}", name);
             Console.WriteLine("Ваш возраст: {0}", age);
@@ -26,13 +36,21 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
                 favcolors[i] = ShowColor(name, age);
             }
             ShowColors(name, favcolors);
-            var array = GetArrayFromConsole();
-            var sortedarray = SortArrey(array);
-            
-            Console.ReadKey();
         }
+        static void ShowArray(int[] array, bool isSort = false)
+        {
+            var temp = array;
+            if (isSort)
+            {
+                temp = SortArrey(array);
 
-
+            }
+            Console.WriteLine("Ваш массив");
+            foreach (var item in temp)
+            {
+                Console.WriteLine(item);
+            }
+        }
         static int[] GetArrayFromConsole(int num = 5)
         {
             
