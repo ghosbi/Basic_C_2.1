@@ -7,16 +7,56 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args) // Объявление метода Main
         {
-           
-            var array = GetArrayFromConsole(10);
-            var sortedarray = SortArrey(array);
-            ShowArray(array, true);
+            Console.WriteLine("Напишите что-нибудь");
+            var str = Console.ReadLine();
 
+            Console.WriteLine("Укажите длину эха");
+            var deep = int.Parse(Console.ReadLine());
+
+            Echo(str, deep);
 
             Console.ReadKey();
+
+        }
+        static void Echo(string phrase, int deep)
+        {
+            var modif = phrase;
+            if (modif.Length>2)
+            {
+                modif = modif.Remove(0, 2);
+                Console.WriteLine("....." + modif);
+            }
+            if (deep > 1)
+            {
+                Echo(modif, deep - 1);
+
+            }
+        }
+        static void Task5313()
+        {
+            int[] sortedasc;
+            int[] sorteddesc;
+
+
+            var num = Convert.ToInt32(Console.ReadLine());
+
+            SortArrey(GetArrayFromConsole(ref num), out sortedasc, out sorteddesc);
+            foreach (var item in sorteddesc)
+            {
+                Console.WriteLine(item);
+
+            }
+            foreach (var item in sortedasc)
+            {
+                Console.WriteLine(item);
+            }
         }
         static void Trash()
         {
+            var arr = new int[] { 1, 2, 3 };
+            BigDataOperation(arr);
+
+            Console.WriteLine(arr[0]);
             var (name, age) = ("Евгений", 27);
             Console.WriteLine("Ваше имя: {0}", name);
             Console.WriteLine("Ваш возраст: {0}", age);
@@ -42,7 +82,7 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             var temp = array;
             if (isSort)
             {
-                temp = SortArrey(array);
+                
 
             }
             Console.WriteLine("Ваш массив");
@@ -51,36 +91,25 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
                 Console.WriteLine(item);
             }
         }
-        static int[] GetArrayFromConsole(int num = 5)
+        static int[] GetArrayFromConsole(ref int num)
         {
             
-            var result = new int[num];
+            var array = new int[num];
 
-            for (int i = 0; i < result.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-                result[i] = int.Parse(Console.ReadLine());
+                array[i] = int.Parse(Console.ReadLine());
             }
 
-            return result;
+            return array;
         }
-        static int[] SortArrey(int[] result)
+        static void SortArrey(int[] array, out int[] sorteddesc, out int[] sortedasc)
         {
 
-            int temp = 0;
-            for (int i = 0; i < result.Length; i++)
-            {
-                for (int j = 0; j < result.Length; j++)
-                {
-                    if (result[i] > result[j])
-                    {
-                        temp = result[i];
-                        result[i] = result[j];
-                        result[j] = temp;
-                    }
-                }
-            }
-            return result;
+            sortedasc = SortArrayAsc(array);
+            sorteddesc = SortArrayDesc(array);
+
         }
         static string ShowColor(string username, int userage)
         {
@@ -124,6 +153,59 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             {
                 Console.WriteLine(color);
             }
+        }
+        static void GetName(ref string name)
+        {
+            Console.WriteLine("Введите имя");
+            name = Console.ReadLine();
+
+        }
+        static void ChangeAge(int age1)
+        {
+            Console.WriteLine("Введите возраст");
+            int age2 = Convert.ToInt32(Console.ReadLine());
+        }
+        static void BigDataOperation(in int[] arr)
+        {
+            arr[0] = 4;
+        }
+        static int[] SortArrayDesc(int[] array)
+        {
+            int[] arrayCopy = new int[array.Length];
+            int temp = 0;
+            Array.Copy(sourceArray: array, destinationArray: arrayCopy, array.Length);
+            for (int i = 0; i < arrayCopy.Length; i++)
+            {
+                for (int j = 0; j < arrayCopy.Length; j++)
+                {
+                    if (arrayCopy[i] > arrayCopy[j])
+                    {
+                        temp = arrayCopy[i];
+                        arrayCopy[i] = arrayCopy[j];
+                        arrayCopy[j] = temp;
+                    }
+                }
+            }
+            return arrayCopy;
+        }
+        static int[] SortArrayAsc(int[] array)
+        {
+            int temp = 0;
+            int[] arrayCopy = new int[array.Length];
+            Array.Copy(sourceArray: array, destinationArray: arrayCopy, array.Length);
+            for (int i = 0; i < arrayCopy.Length; i++)
+            {
+                for (int j = 0; j < arrayCopy.Length; j++)
+                {
+                    if (arrayCopy[i] < arrayCopy[j])
+                    {
+                        temp = arrayCopy[i];
+                        arrayCopy[i] = arrayCopy[j];
+                        arrayCopy[j] = temp;
+                    }
+                }
+            }
+            return arrayCopy;
         }
     }
 }
