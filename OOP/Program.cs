@@ -28,3 +28,31 @@
         cost = penCost;
     }
 }
+class Rectangle
+{
+    public int a;
+    public int b;
+
+
+    public int Square()
+    {
+        return a * b;
+
+    }
+
+    public Rectangle()
+    {
+        a = 6;
+        b = 4;
+    }
+    public Rectangle(int c, int d)
+    {
+        a = c;
+        b = d;
+    }
+    public Rectangle(int x)
+    {
+        a = x;
+        b = x;
+    }
+}
