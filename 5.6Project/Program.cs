@@ -11,161 +11,158 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
         {
 
             EnterUser();
-           
+
         }
 
-        static (string name, string secondName, int age, string[] ArrayNamePit,int SumPet,string havePit,int SumColor, string[] favoriteColor) EnterUser()
+        static (string Name, string SecondName, int Age, string[] ArrayNamePit, int SumPet, string HavePit, int SumColor, string[] FavoriteColor) EnterUser()
         {
-            (string name, string secondName, int age, string[] ArrayNamePit, int SumPet, string havePit, int SumColor, string[] favoriteColor) User;
-            string name1;
+            (string Name, string SecondName, int Age, string[] ArrayNamePit, int SumPet, string HavePit, int SumColor, string[] FavoriteColor) User;
+            string Name1;
             do
             {
-
                 Console.WriteLine("Доброго времени суток, сейчас мы составим Анкету, будут необходимы следующие данные:\nВведите Ваше Имя:");
+                Name1 = Console.ReadLine();
 
-                name1 = Console.ReadLine();
-            } while (CheckChar(name1, out _));
+            } while (CheckChar(Name1, out _));
 
-            User.name = name1;
+            User.Name = Name1;
 
-            string name2;
+            string Name2;
             do
             {
                 Console.WriteLine("Введиет вашу Фамилию:");
-                name2 = Console.ReadLine();
+                Name2 = Console.ReadLine();
 
+            } while (CheckChar(Name2, out _));
 
-            } while (CheckChar(name2, out _));
+            User.SecondName = Name2;
 
-            User.secondName = name2;
-            
-            string age;
-            int intage;
-            bool havePit1 = false;
+            string Age;
+            int Intage;
+            bool HavePit1 = false;
             do
             {
                 Console.WriteLine("Введите возраст цифрами");
-                age = Console.ReadLine();
+                Age = Console.ReadLine();
 
-            } while (CheckNum(age, out intage));
+            } while (CheckNum(Age, out Intage));
 
-            User.age = intage;
+            User.Age = Intage;
 
             Console.WriteLine("Есть ли у вас домашнее животное?");
-            var havePit = Console.ReadLine();
+            var HavePit = Console.ReadLine();
 
-            if (havePit == "Да" || havePit == "да")
+            if (HavePit == "Да" || HavePit == "да")
             {
-                havePit1 = true;
-                User.havePit = "Есть домашнии животные";
+                HavePit1 = true;
+                User.HavePit = "Есть домашнии животные";
             }
             else
             {
-               User.havePit = "Нету домашнего животного";
+                User.HavePit = "Нету домашнего животного";
             }
 
             string Pet;
-            int numpet;
-            if (havePit1 == true)
+            int Numpet;
+            if (HavePit1 == true)
             {
                 do
                 {
                     Console.WriteLine("Введите кол-во ваших домашних животных");
                     Pet = Console.ReadLine();
-                } while (CheckNum(Pet, out numpet));
 
+                } while (CheckNum(Pet, out Numpet));
 
-                User.SumPet = numpet;
+                User.SumPet = Numpet;
 
-
-                User.ArrayNamePit = ShoePet(numpet);
+                User.ArrayNamePit = ShowPet(Numpet);
 
             }
             else
             {
-                string[] outPet = {"нету", "питомцев"};
+                string[] OutPet = { "нету", "питомцев" };
                 User.SumPet = 0;
-                User.ArrayNamePit = outPet;
+                User.ArrayNamePit = OutPet;
             }
 
-            string color;
-            int numColor;
+            string Color;
+            int NumColor;
             do
             {
                 Console.WriteLine("Введите кол-во любимых цветов");
-                color = Console.ReadLine();
-            } while (CheckNum(color, out numColor));
+                Color = Console.ReadLine();
 
-            User.SumColor = numColor;
+            } while (CheckNum(Color, out NumColor));
 
-            User.favoriteColor = ShowColor(numColor);
+            User.SumColor = NumColor;
 
-            Console.WriteLine("Ваше имя: {0}", User.name);
-            Console.WriteLine("Ваша Фамилия: {0}", User.secondName);
-            Console.WriteLine("Ваш возраст: {0}", User.age);
-            Console.WriteLine(User.havePit);
-            if (havePit1 == true)
+            User.FavoriteColor = ShowColor(NumColor);
+
+            Console.WriteLine("Ваше имя: {0}", User.Name);
+            Console.WriteLine("Ваша Фамилия: {0}", User.SecondName);
+            Console.WriteLine("Ваш возраст: {0}", User.Age);
+            Console.WriteLine(User.HavePit);
+            if (HavePit1 == true)
             {
                 Console.Write("Имена ваших животных: ");
-                foreach (var name in User.ArrayNamePit)
+                foreach (var Name in User.ArrayNamePit)
                 {
-                    Console.Write(name + ", ");
+                    Console.Write(Name + ", ");
                 }
                 Console.WriteLine();
             }
             Console.Write("Ваши любмые цвета:");
-            foreach (var color1 in User.favoriteColor)
+            foreach (var Color1 in User.FavoriteColor)
             {
-                Console.Write(color1);
+                Console.Write(Color1);
             }
-            
 
             return User;
-            
-
-            
 
         }
-        static string[] ShowColor(int numcolor)
+
+        static string[] ShowColor(int Numcolor)
         {
-            string[] ArrayFavoriteColor = new string[numcolor];
-            for (int i = 0; i < numcolor; i++)
+            string[] ArrayFavoriteColor = new string[Numcolor];
+            for (int i = 0; i < Numcolor; i++)
             {
                 do
                 {
                     Console.WriteLine($"Введите любимый {i + 1} цвет");
                     ArrayFavoriteColor[i] = Console.ReadLine();
                 } while (CheckChar(ArrayFavoriteColor[i], out _));
-                
+
             }
             return ArrayFavoriteColor;
 
         }
-        static string[] ShoePet(int numpet)
+
+        static string[] ShowPet(int Numpet)
         {
-            string[] ArrayNamePit = new string[numpet];
-            for (int i = 0; i < numpet; i++)
+            string[] ArrayNamePit = new string[Numpet];
+            for (int i = 0; i < Numpet; i++)
             {
                 do
                 {
                     Console.WriteLine($"Введите имя питома {i + 1}");
                     ArrayNamePit[i] = Console.ReadLine();
                 } while (CheckChar(ArrayNamePit[i], out _));
-                
+
             }
             return ArrayNamePit;
         }
-        static bool CheckNum(string number, out int corrnumber)
+
+        static bool CheckNum(string Number, out int CorrNumber)
         {
-            corrnumber = 0;
-            if (int.TryParse(number, out int intnum))
+            CorrNumber = 0;
+            if (int.TryParse(Number, out int Intnum))
             {
-                if (intnum > 0 && intnum <= 100)
+                if (Intnum > 0 && Intnum <= 100)
                 {
-                    corrnumber = intnum;
+                    CorrNumber = Intnum;
                     return false;
                 }
-                else if (intnum == 0)
+                else if (Intnum == 0)
                 {
                     Console.WriteLine("Ошибка данных при вводе, значение не может быть равно 0");
                     return true;
@@ -179,14 +176,15 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             else
             {
                 Console.WriteLine("Неверный ввод данных");
-                corrnumber = 0;
+                CorrNumber = 0;
                 return true;
             }
         }
-        static bool CheckChar(string number, out int corrnumber)
+
+        static bool CheckChar(string Number, out int CorrNumber)
         {
-            corrnumber = 0;
-            if (int.TryParse(number, out int intnum))
+            CorrNumber = 0;
+            if (int.TryParse(Number, out int Intnum))
             {
                 Console.WriteLine("Вы ввели число");
                 return true;
@@ -194,7 +192,7 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             else
             {
 
-                corrnumber = 0;
+                CorrNumber = 0;
                 return false;
             }
         }
