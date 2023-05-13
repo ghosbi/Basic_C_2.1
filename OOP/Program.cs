@@ -7,30 +7,78 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 {
     class Program // Объявление класса Program
     {
-        static void Main(string[] args) // Объявление метода Main
-        {
-            
-        }
 
-        static Department GetCurrentDepartment()
-        {
-
-        }
-
-        static void tasksubTask()
-        {
-            var department = GetCurrentDepartment();
-
-            if (department?.Company?.Type == "Банк" && department?.City?.Name == "Санкт-Петербург")
-            {
-                Console.WriteLine("У банка {0} есть отделение в Сантк-Петербурге", department?.Company?.Name ?? "Неизвестная компания");
-            }
-        }
-
-       
     }
 
-    
+
+}
+class User
+{
+    private int age;
+
+    public int Age
+    {
+        get
+        {
+            return age;
+        }
+
+        set
+        {
+            if (value < 18)
+            {
+                Console.WriteLine("Возраст должен быть не меньше 18");
+            }
+            else
+            {
+                age = value;
+            }
+        }
+    }
+
+    private string login;
+
+    public string Login
+    {
+        get
+        {
+            return login;
+        }
+
+        set
+        {
+            if (login.Length < 3)
+            {
+                Console.WriteLine("Логин должен быть больше 3 символов");
+            }
+            else
+            {
+                login = value;
+            }
+        }
+    }
+
+    private string mail;
+
+    public string Mail
+    {
+        get
+        {
+            return mail;
+        }
+
+        set
+        {
+            if (mail.Contains('@'))
+            {
+                mail = value;
+            }
+            else
+            {
+                Console.WriteLine("Указан неверный mail");
+            }
+        }
+    }
 }
 
 class Pen
@@ -159,6 +207,19 @@ class Circle
     }
 
     public double Length()
+    {
+
+    }
+}
+
+class TrafficLight
+{
+    private void ChangeColor(string color)
+    {
+
+    }
+
+    public void GetColor()
     {
 
     }
