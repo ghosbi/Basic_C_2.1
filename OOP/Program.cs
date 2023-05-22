@@ -9,12 +9,39 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args)
         {
-            SmartHelper helper = new SmartHelper("Олег");
-            helper.Greetings("Грег");
+
         }
     }
 
 
+}
+
+class BaseClass
+{
+    protected string Name;
+
+    public BaseClass(string name)
+    {
+        Name = name;
+    }
+}
+
+class DerivedClass : BaseClass
+{
+    public string Description;
+
+    public int Counter;
+
+    public DerivedClass(string name, string description) : base(name)
+    {
+        Description = description;
+    }
+
+    public DerivedClass(string name, string description, int counter) : base(name)
+    {
+        Description = description;
+        Counter = counter;
+    }
 }
 
 class SmartHelper
@@ -218,14 +245,14 @@ class Triangle
     public int b;
     public int c;
 
-  
+
 }
 
 class Circle
 {
     public double radius;
 
-   
+
 }
 
 class TrafficLight
