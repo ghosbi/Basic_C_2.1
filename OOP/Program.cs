@@ -10,17 +10,34 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args)
         {
-            D d = new D();
-            E e = new E();
-
-            d.Display();
-            ((A)e).Display();
-            ((B)d).Display();
-            ((A)d).Display();
+            
         }
     }
 
 
+}
+
+class IndexingClass
+{
+    private int[] array;
+
+    public IndexingClass(int[] array)
+    {
+        this.array = array;
+    }
+
+    public int this[int index]
+    {
+        get
+        {
+            return array[index];
+
+        }
+        set
+        {
+            array[index] = value;
+        }
+    }
 }
 
 class Obj1
