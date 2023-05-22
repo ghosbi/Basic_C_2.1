@@ -12,6 +12,17 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
 
 }
+
+class ProjectManager : Employee
+{
+    public string ProjectName;
+}
+
+class Developer : Employee
+{
+    private string ProgrammingLanguage;
+}
+
 class User
 {
     private int age;
@@ -223,4 +234,51 @@ class TrafficLight
     {
 
     }
+}
+
+class Employee
+{
+    public string Name;
+    public int Age;
+    public int Salary;
+}
+
+class apple : Fruit
+{
+
+}
+
+class banana : Fruit
+{
+
+}
+
+class pear : Fruit
+{
+
+}
+
+class potato : Vegetable
+{
+
+}
+
+class Carrot : Vegetable
+{
+
+}
+
+class Fruit : Food
+{
+
+}
+
+class Vegetable : Food
+{
+
+}
+
+class Food
+{
+
 }
