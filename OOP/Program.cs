@@ -1,4 +1,5 @@
 ﻿using System; // Подключенное пространство имен
+using System.Data.Common;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -9,17 +10,93 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args)
         {
+            D d = new D();
+            E e = new E();
 
+            d.Display();
+            ((A)e).Display();
+            ((B)d).Display();
+            ((A)d).Display();
         }
     }
 
 
 }
 
+class Obj1
+{
+    public int Value;
+
+    public static Obj1 operator + (Obj1 a, Obj1 b)
+    {
+        return new Obj1
+        {
+            Value = a.Value + b.Value
+        };
+    }
+    public static Obj1 operator -(Obj1 a, Obj1 b)
+    {
+        return new Obj1
+        {
+            Value = a.Value - b.Value
+        };
+    }
+}
+
+class A
+{
+    public virtual void Display()
+    {
+        Console.WriteLine("A");
+    }
+}
+
+class B : A
+{
+    public void Display()
+    {
+        Console.WriteLine("B");
+    }
+}
+
+class C : A
+{
+    public override void Display()
+    {
+        Console.WriteLine("C");
+    }
+}
+
+class D : B
+{
+    public void Display()
+    {
+        Console.WriteLine("D");
+    }
+}
+
+class E : C
+{
+    public void Display()
+    {
+        Console.WriteLine("E");
+    }
+}
+
 class BaseClass
 {
     protected string Name;
 
+    public virtual int Counter1
+    {
+        get;
+        set;
+    }
+
+    public virtual void Display()
+    {
+        Console.WriteLine("Метод класса BaseClass");
+    }
     public BaseClass(string name)
     {
         Name = name;
@@ -32,6 +109,30 @@ class DerivedClass : BaseClass
 
     public int Counter;
 
+    private int counter1;
+    public override int Counter1
+    {
+        get
+        {
+            return counter1;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                Console.WriteLine("Числа меньше 0 не заносятся");
+            }
+            else
+            {
+                counter1 = value;
+            }
+        }
+    }
+    public override void Display()
+    {
+        base.Display();
+        Console.WriteLine("Метод класса DerivedClass");
+    }
     public DerivedClass(string name, string description) : base(name)
     {
         Description = description;
