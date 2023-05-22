@@ -7,10 +7,46 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 {
     class Program // Объявление класса Program
     {
-
+        static void Main(string[] args)
+        {
+            SmartHelper helper = new SmartHelper("Олег");
+            helper.Greetings("Грег");
+        }
     }
 
 
+}
+
+class SmartHelper
+{
+    private string name;
+
+    public SmartHelper(string name)
+    {
+        this.name = name;
+    }
+
+    public void Greetings(string name)
+    {
+        Console.WriteLine("Привет, {0}, я интеллектуальный помошник {1}", name, this.name);
+    }
+}
+
+class Obj
+{
+    private string name;
+    private string owner;
+    private int length;
+    private int count;
+
+    public Obj(string name, string ownerName, int objLength, int count)
+    {
+        this.name = name;
+        owner = ownerName;
+        length = objLength;
+        this.count = count;
+
+    }
 }
 
 class ProjectManager : Employee
@@ -182,45 +218,14 @@ class Triangle
     public int b;
     public int c;
 
-    public double Square()
-    {
-
-    }
-
-    public double Perimeter()
-    {
-
-    }
-}
-
-class Square
-{
-    public int side;
-
-    public double Square()
-    {
-
-    }
-
-    public double Perimeter()
-    {
-
-    }
+  
 }
 
 class Circle
 {
     public double radius;
 
-    public double Square()
-    {
-
-    }
-
-    public double Length()
-    {
-
-    }
+   
 }
 
 class TrafficLight
