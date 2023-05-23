@@ -1,5 +1,6 @@
 ﻿using System; // Подключенное пространство имен
 using System.Data.Common;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -15,6 +16,38 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     }
 
 
+}
+
+abstract class ComputerPart
+{
+    public abstract void Work();
+    {
+
+    }
+}
+
+class Processor : ComputerPart
+{
+    public override void Work()
+    {
+        
+    }
+}
+
+class MotherBoard : ComputerPart
+{
+    public override void Work()
+    {
+
+    }
+}
+
+class GraphicCard : ComputerPart
+{
+    public override void Work()
+    {
+
+    }
 }
 
 class IndexingClass
