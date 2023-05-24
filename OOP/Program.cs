@@ -11,8 +11,39 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args)
         {
-            
+
         }
+    }
+
+
+}
+
+class Helper
+{
+    public static void Swap(ref int a,ref int b)
+    {
+        int c;
+        c = a;
+        a = b;
+        b = c;
+    }
+}
+
+class Obj2
+{
+    public string Name;
+    public string Description;
+
+    public static int MaxValue;
+    public static string Parent;
+    public static int DaysInWeek;
+
+    static Obj2()
+    {
+        Console.WriteLine("Вызван статический конструктор класса Obj2");
+        DaysInWeek = 7;
+        Parent = "System.Object";
+        MaxValue = 2000;
     }
 
 
@@ -21,16 +52,14 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 abstract class ComputerPart
 {
     public abstract void Work();
-    {
 
-    }
 }
 
 class Processor : ComputerPart
 {
     public override void Work()
     {
-        
+
     }
 }
 
@@ -77,7 +106,7 @@ class Obj1
 {
     public int Value;
 
-    public static Obj1 operator + (Obj1 a, Obj1 b)
+    public static Obj1 operator +(Obj1 a, Obj1 b)
     {
         return new Obj1
         {
