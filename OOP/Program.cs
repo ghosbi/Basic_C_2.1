@@ -18,6 +18,21 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
 }
 
+class Car<T>
+{
+    public T Engine;
+}
+
+class ElectricEngine
+{
+
+}
+
+class GasEngine
+{
+
+}
+
 class Helper
 {
     public static void Swap(ref int a,ref int b)
