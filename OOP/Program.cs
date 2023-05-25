@@ -18,9 +18,36 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
 }
 
-class Car<T>
+class Battery
 {
-    public T Engine;
+
+}
+
+class Differetial
+{
+
+}
+class Wheel
+{
+
+}
+
+class Record<T1, T2>
+{
+    public T1 Id;
+    public DateTime Date;
+    public T2 Value;
+
+}
+
+class Car<T1>
+{
+    public T1 Engine;
+
+    public virtual void ChangePart<T2>(T2 newPart)
+    {
+        
+    }
 }
 
 class ElectricEngine
