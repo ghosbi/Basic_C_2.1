@@ -18,7 +18,23 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
 }
 
-class CarPart
+class ElectricCar : Car<ElectricEngine>
+{
+    public override void ChangePart<TPart>(TPart newPart)
+    {
+       
+    }
+}
+
+class GasCar : Car<Engine>
+{
+    public override void ChangePart<TPart>(TPart newPart)
+    {
+        
+    }
+}
+
+abstract class  CarPart
 {
 
 }
@@ -45,14 +61,12 @@ class Record<T1, T2>
 
 }
 
-class Car<T1> where T1: Engine
+abstract class Car<TEngine> where TEngine: Engine
 {
-    public T1 Engine;
+    public TEngine Engine;
 
-    public virtual void ChangePart<T2>(T2 newPart) where T2:CarPart
-    {
-        
-    }
+    public abstract void ChangePart<TPart>(TPart newPart) where TPart:CarPart
+    
 }
 
 class ElectricEngine : Engine
@@ -65,7 +79,7 @@ class GasEngine : Engine
 
 }
 
-class Engine
+abstract class Engine
 {
 
 }
