@@ -18,16 +18,21 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
 }
 
-class Battery
+class CarPart
 {
 
 }
 
-class Differetial
+class Battery: CarPart
 {
 
 }
-class Wheel
+
+class Differetial : CarPart
+{
+
+}
+class Wheel: CarPart
 {
 
 }
@@ -40,22 +45,27 @@ class Record<T1, T2>
 
 }
 
-class Car<T1>
+class Car<T1> where T1: Engine
 {
     public T1 Engine;
 
-    public virtual void ChangePart<T2>(T2 newPart)
+    public virtual void ChangePart<T2>(T2 newPart) where T2:CarPart
     {
         
     }
 }
 
-class ElectricEngine
+class ElectricEngine : Engine
 {
 
 }
 
-class GasEngine
+class GasEngine : Engine
+{
+
+}
+
+class Engine
 {
 
 }
