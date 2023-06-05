@@ -4,6 +4,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Transactions;
+using System.IO;
+using Microsoft.VisualBasic.FileIO;
 
 namespace FirstApplication.ConsoleApp // Объявление пространства имен для данного кода
 {
@@ -11,11 +13,65 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args)
         {
-            
+
+            /* получим системные диски
+            DriveInfo[] drives = DriveInfo.GetDrives();
+
+            // Пробежимся по дискам и выведем их свойства
+            foreach (DriveInfo drive in drives)
+            {
+                Console.WriteLine($"Название: {drive.Name}");
+                Console.WriteLine($"Тип: {drive.DriveType}");
+                if (drive.IsReady)
+                {
+                    Console.WriteLine($"Объем: {drive.TotalSize}");
+                    Console.WriteLine($"Свободно: {drive.TotalFreeSpace}");
+                    Console.WriteLine($"Метка: {drive.VolumeLabel}"); 
+                }
+            } */
+
+            GetCatalogs();
+
+        }
+
+        static void GetCatalogs()
+        {
+            string dirName = @"C:\\";
+            if (Directory.Exists(dirName))
+            {
+                Console.WriteLine("Папки");
+                string[] dirs = Directory.GetDirectories(dirName);
+
+                foreach (string d in dirs)
+                {
+                    Console.WriteLine(d);
+                }
+                Console.WriteLine();
+                Console.WriteLine("Файлы");
+                string[] files = Directory.GetFiles(dirName);
+                foreach (string s in files)
+                {
+                    Console.WriteLine(s);
+                }
+                try
+                {
+                    DirectoryInfo dirInfo = new DirectoryInfo("C:\\Users\\Pavel\\Desktop\\testFolder");
+                    FileSystem.DeleteDirectory(dirInfo.FullName, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+
+                
+            }
         }
     }
 
 }
+
+
 public class Drive
 {
     public Drive(string name, long totalSpace, long freeSpace)
