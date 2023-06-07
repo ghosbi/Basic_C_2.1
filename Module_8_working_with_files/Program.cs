@@ -5,7 +5,7 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.IO;
-using Microsoft.VisualBasic.FileIO;
+
 
 namespace FirstApplication.ConsoleApp // Объявление пространства имен для данного кода
 {
@@ -13,30 +13,27 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args)
         {
+            string filePath = @"E:\Programm Files\Project Course\Basic 2.0\Basic C# 2.0\Module_8_working_with_files\Program.cs";
 
-            /* получим системные диски
-            DriveInfo[] drives = DriveInfo.GetDrives();
+           
 
-            // Пробежимся по дискам и выведем их свойства
-            foreach (DriveInfo drive in drives)
+            using (StreamReader sr = File.OpenText(filePath))
             {
-                Console.WriteLine($"Название: {drive.Name}");
-                Console.WriteLine($"Тип: {drive.DriveType}");
-                if (drive.IsReady)
+                string str = "";
+                while ((str = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine($"Объем: {drive.TotalSize}");
-                    Console.WriteLine($"Свободно: {drive.TotalFreeSpace}");
-                    Console.WriteLine($"Метка: {drive.VolumeLabel}"); 
+                    Console.WriteLine(str);
                 }
-            } */
+            }
 
-            GetCatalogs();
+
+
 
         }
 
         static void GetCatalogs()
         {
-            string dirName = @"C:\\";
+            /*string dirName = @"C:\\";
             if (Directory.Exists(dirName))
             {
                 Console.WriteLine("Папки");
@@ -61,11 +58,41 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
                 catch(Exception e)
                 {
                     Console.WriteLine(e.Message);
-                }
+                } 
 
 
                 
-            }
+            } */
+        }
+
+        static void theory()
+        {
+            /* получим системные диски
+            DriveInfo[] drives = DriveInfo.GetDrives();
+
+            // Пробежимся по дискам и выведем их свойства
+            foreach (DriveInfo drive in drives)
+            {
+                Console.WriteLine($"Название: {drive.Name}");
+                Console.WriteLine($"Тип: {drive.DriveType}");
+                if (drive.IsReady)
+                {
+                    Console.WriteLine($"Объем: {drive.TotalSize}");
+                    Console.WriteLine($"Свободно: {drive.TotalFreeSpace}");
+                    Console.WriteLine($"Метка: {drive.VolumeLabel}"); 
+                }
+            } */
+
+            /*if (!File.Exists(filePath))
+            {
+                using (StreamWriter sw = File.CreateText(filePath))
+                {
+                    sw.WriteLine("Oleg");
+                    sw.WriteLine("Dima");
+                    sw.WriteLine("Ivan");
+                }
+            }*/
+
         }
     }
 
@@ -98,3 +125,4 @@ public class Folder
         Folders.Add(name, new Folder());
     }
 }
+
