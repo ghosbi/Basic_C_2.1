@@ -5,35 +5,30 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.IO;
-
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace FirstApplication.ConsoleApp // Объявление пространства имен для данного кода
 {
     class Program // Объявление класса Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            // сохраняем путь к файлу (допустим, вы его скачали на рабочий стол)
-            string filePath = @"C:\\Users\\Pavel\\Desktop\\BinaryFile.bin";
-           // при запуске проверим, что файл существует
-            if (File.Exists(filePath))
-            {
-                // строковая переменная, в которую будем считывать данные
-                string stringValue;
-                // считываем, после использования высвобождаем задействованный ресурс BinaryReader
-                using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
-                {
-                    
-                    stringValue = reader.ReadString();
-                }
+            // объект для сериализации
+            var contact = new Contact("Pavel", 89068026912, "Pavel.romon@mail.ru");
+            Console.WriteLine("Объект создан");
 
-                Console.WriteLine("Из файл считано");
-                Console.WriteLine(stringValue);
+            BinaryFormatter formatter = new BinaryFormatter();
+            // получаем поток, куда будем записывать сериализованный объект
+            using (var fs = new FileStream("Contact.dat", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, contact);
+                Console.WriteLine("Объект сериализован");
             }
 
         }
 
-        
+
+
         static void GetCatalogs()
         {
             /*string dirName = @"C:\\";
@@ -168,11 +163,61 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
                 }
             }
 
+            // сохраняем путь к файлу (допустим, вы его скачали на рабочий стол)
+            string filePath = @"C:\\Users\\Pavel\\Desktop\\BinaryFile.bin";
+           // при запуске проверим, что файл существует
+            if (File.Exists(filePath))
+            {
+                // строковая переменная, в которую будем считывать данные
+                string stringValue;
+                // считываем, после использования высвобождаем задействованный ресурс BinaryReader
+                using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+                {
+                    
+                    stringValue = reader.ReadString();
+                }
+
+                Console.WriteLine("Из файл считано");
+                Console.WriteLine(stringValue);
+
+                using (BinaryWriter writer = new BinaryWriter(File.Open(filePath, FileMode.Open)))
+                {
+                    writer.Write($"Файл изменен {DateTime.Now} на компьютере {Environment.OSVersion}");
+                }
+
+                string stringValue1;
+
+                using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+                {
+
+                    stringValue1 = reader.ReadString();
+                }
+
+                Console.WriteLine("Из файла считано");
+                Console.WriteLine(stringValue1);
+            }
+
+
+
             */
 
         }
     }
 
+    [Serializable]
+    class Contact
+    {
+        public string Name { get; set; }
+        public long PhoneNumber { get; set; }
+        public string Email { get; set; }
+
+        public Contact(string name, long phoneNumber, string email)
+        {
+            Name = name;
+            PhoneNumber = phoneNumber;
+            Email = email;
+        }
+    }
 }
 
 
