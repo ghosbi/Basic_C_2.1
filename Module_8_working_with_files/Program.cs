@@ -13,9 +13,13 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args)
         {
-            Exception exception = new Exception();
+            Exception exception = new Exception("Собственное исключение");
 
             exception.Data.Add("Дата создания:",DateTime.Now);
+
+            
+
+            exception.HelpLink = "www.yandex.ru";
         }
 
 
