@@ -17,9 +17,16 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
             exception.Data.Add("Дата создания:", DateTime.Now);
 
-
-
             exception.HelpLink = "www.yandex.ru";
+
+            try
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            catch (Exception ex) when (ex is ArgumentOutOfRangeException)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
