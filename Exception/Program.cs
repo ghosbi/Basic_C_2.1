@@ -27,6 +27,16 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             {
                 Console.WriteLine(ex.Message);
             }
+
+            try
+            {
+                throw new RankException();
+            }
+            catch (RankException ex)
+            {
+
+                Console.WriteLine(ex.GetType());
+            }
         }
     }
 }
