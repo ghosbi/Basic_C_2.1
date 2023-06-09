@@ -13,18 +13,9 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         static void Main(string[] args)
         {
-            // объект для сериализации
-            var contact = new Contact("Pavel", 89068026912, "Pavel.romon@mail.ru");
-            Console.WriteLine("Объект создан");
+            Exception exception = new Exception();
 
-            BinaryFormatter formatter = new BinaryFormatter();
-            // получаем поток, куда будем записывать сериализованный объект
-            using (var fs = new FileStream("Contact.dat", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, contact);
-                Console.WriteLine("Объект сериализован");
-            }
-
+            exception.Data.Add("Дата создания:",DateTime.Now);
         }
 
 
@@ -65,144 +56,154 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
         static void theory()
         {
-            /* получим системные диски
-            DriveInfo[] drives = DriveInfo.GetDrives();
+        /* получим системные диски
+        DriveInfo[] drives = DriveInfo.GetDrives();
 
-            // Пробежимся по дискам и выведем их свойства
-            foreach (DriveInfo drive in drives)
+        // Пробежимся по дискам и выведем их свойства
+        foreach (DriveInfo drive in drives)
+        {
+            Console.WriteLine($"Название: {drive.Name}");
+            Console.WriteLine($"Тип: {drive.DriveType}");
+            if (drive.IsReady)
             {
-                Console.WriteLine($"Название: {drive.Name}");
-                Console.WriteLine($"Тип: {drive.DriveType}");
-                if (drive.IsReady)
-                {
-                    Console.WriteLine($"Объем: {drive.TotalSize}");
-                    Console.WriteLine($"Свободно: {drive.TotalFreeSpace}");
-                    Console.WriteLine($"Метка: {drive.VolumeLabel}"); 
-                }
-            } */
-
-            /*
-           
-
-
-            string tempFile = Path.GetTempFileName();// используем генерацию имени файла.
-            var fileInfo = new FileInfo(tempFile);// Создаем объект класса FileInfo.
-
-            //Создаем файл и записываем в него.
-            using (StreamWriter sw = fileInfo.CreateText())
-            {
-                sw.WriteLine("Igor");
-                sw.WriteLine("Andrey");
-                sw.WriteLine("Sergey");
-
+                Console.WriteLine($"Объем: {drive.TotalSize}");
+                Console.WriteLine($"Свободно: {drive.TotalFreeSpace}");
+                Console.WriteLine($"Метка: {drive.VolumeLabel}"); 
             }
+        } */
 
-            //Открываем файл и читаем из него.
-            using (StreamReader sr = fileInfo.OpenText())
-            {
-                string str = "";
-                while ((str = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine(str);
-                }
-            }
-
-            try
-            {
-                string tempFile2 = Path.GetTempFileName();
-                var fileInfo2 = new FileInfo(tempFile2);
-
-                // Убедимся, что файл назначения точно отсутствует
-                fileInfo2.Delete();
-
-                // Копируем информацию
-                fileInfo.CopyTo(tempFile2);
-                Console.WriteLine($"{tempFile} coppyTo {tempFile2}.");
-
-                //Удаляем ранее созданный файл.
-                fileInfo.Delete();
-                Console.WriteLine($"{tempFile}Delete");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Error: {e}");
-            }
-
-            if (!File.Exists(filePath))
-            {
-                using (StreamWriter sw = File.CreateText(filePath))
-                {
-                    sw.WriteLine("Oleg");
-                    sw.WriteLine("Dima");
-                    sw.WriteLine("Ivan");
-                }
-            }
-
-            using (StreamReader sr = File.OpenText(filePath))
-            {
-                string str = "";
-                while ((str = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine(str);
-                }
-            }
-
-            var fileInfo = new FileInfo(@"E:\Programm Files\Project Course\Basic 2.0\Basic C# 2.0\Module_8_working_with_files\Program.cs");
-
-            using (StreamWriter sw = fileInfo.AppendText())
-            {
-                sw.WriteLine($"// Время запуска: {DateTime.Now}");
-            }
-
-            using (StreamReader sr = fileInfo.OpenText())
-            {
-                string str = "";
-                while ((str = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine(str);
-                }
-            }
-
-            // сохраняем путь к файлу (допустим, вы его скачали на рабочий стол)
-            string filePath = @"C:\\Users\\Pavel\\Desktop\\BinaryFile.bin";
-           // при запуске проверим, что файл существует
-            if (File.Exists(filePath))
-            {
-                // строковая переменная, в которую будем считывать данные
-                string stringValue;
-                // считываем, после использования высвобождаем задействованный ресурс BinaryReader
-                using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
-                {
-                    
-                    stringValue = reader.ReadString();
-                }
-
-                Console.WriteLine("Из файл считано");
-                Console.WriteLine(stringValue);
-
-                using (BinaryWriter writer = new BinaryWriter(File.Open(filePath, FileMode.Open)))
-                {
-                    writer.Write($"Файл изменен {DateTime.Now} на компьютере {Environment.OSVersion}");
-                }
-
-                string stringValue1;
-
-                using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
-                {
-
-                    stringValue1 = reader.ReadString();
-                }
-
-                Console.WriteLine("Из файла считано");
-                Console.WriteLine(stringValue1);
-            }
+        /*
 
 
 
-            */
+        string tempFile = Path.GetTempFileName();// используем генерацию имени файла.
+        var fileInfo = new FileInfo(tempFile);// Создаем объект класса FileInfo.
+
+        //Создаем файл и записываем в него.
+        using (StreamWriter sw = fileInfo.CreateText())
+        {
+            sw.WriteLine("Igor");
+            sw.WriteLine("Andrey");
+            sw.WriteLine("Sergey");
 
         }
+
+        //Открываем файл и читаем из него.
+        using (StreamReader sr = fileInfo.OpenText())
+        {
+            string str = "";
+            while ((str = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(str);
+            }
+        }
+
+        try
+        {
+            string tempFile2 = Path.GetTempFileName();
+            var fileInfo2 = new FileInfo(tempFile2);
+
+            // Убедимся, что файл назначения точно отсутствует
+            fileInfo2.Delete();
+
+            // Копируем информацию
+            fileInfo.CopyTo(tempFile2);
+            Console.WriteLine($"{tempFile} coppyTo {tempFile2}.");
+
+            //Удаляем ранее созданный файл.
+            fileInfo.Delete();
+            Console.WriteLine($"{tempFile}Delete");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error: {e}");
+        }
+
+        if (!File.Exists(filePath))
+        {
+            using (StreamWriter sw = File.CreateText(filePath))
+            {
+                sw.WriteLine("Oleg");
+                sw.WriteLine("Dima");
+                sw.WriteLine("Ivan");
+            }
+        }
+
+        using (StreamReader sr = File.OpenText(filePath))
+        {
+            string str = "";
+            while ((str = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(str);
+            }
+        }
+
+        var fileInfo = new FileInfo(@"E:\Programm Files\Project Course\Basic 2.0\Basic C# 2.0\Module_8_working_with_files\Program.cs");
+
+        using (StreamWriter sw = fileInfo.AppendText())
+        {
+            sw.WriteLine($"// Время запуска: {DateTime.Now}");
+        }
+
+        using (StreamReader sr = fileInfo.OpenText())
+        {
+            string str = "";
+            while ((str = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(str);
+            }
+        }
+
+        // сохраняем путь к файлу (допустим, вы его скачали на рабочий стол)
+        string filePath = @"C:\\Users\\Pavel\\Desktop\\BinaryFile.bin";
+       // при запуске проверим, что файл существует
+        if (File.Exists(filePath))
+        {
+            // строковая переменная, в которую будем считывать данные
+            string stringValue;
+            // считываем, после использования высвобождаем задействованный ресурс BinaryReader
+            using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+            {
+
+                stringValue = reader.ReadString();
+            }
+
+            Console.WriteLine("Из файл считано");
+            Console.WriteLine(stringValue);
+
+            using (BinaryWriter writer = new BinaryWriter(File.Open(filePath, FileMode.Open)))
+            {
+                writer.Write($"Файл изменен {DateTime.Now} на компьютере {Environment.OSVersion}");
+            }
+
+            string stringValue1;
+
+            using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+            {
+
+                stringValue1 = reader.ReadString();
+            }
+
+            Console.WriteLine("Из файла считано");
+            Console.WriteLine(stringValue1);
+        }
+        // объект для сериализации
+        var contact = new Contact("Pavel", 89068026912, "Pavel.romon@mail.ru");
+        Console.WriteLine("Объект создан");
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        // получаем поток, куда будем записывать сериализованный объект
+        using (var fs = new FileStream("Contact.dat", FileMode.OpenOrCreate))
+        {
+            formatter.Serialize(fs, contact);
+            Console.WriteLine("Объект сериализован");
+
+
+
+        */
+
     }
+}
 
     [Serializable]
     class Contact
