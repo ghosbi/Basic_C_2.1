@@ -17,18 +17,21 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
         delegate int RandomNumberDelegate();
         static void Main(string[] args)
         {
-            RandomNumberDelegate randomNumberDelegate = delegate ()
-            {
+            
+        }
+        static void Task9_3_13()
+        {
+            RandomNumberDelegate randomNumberDelegate = () => {
                 return new Random().Next(0, 100);
             };
+
             int result4 = randomNumberDelegate.Invoke();
             Console.WriteLine(result4);
 
         }
-
         static void Task9_3_12()
         {
-            ShowMessageDelegate showMessageDelegate = delegate (string _message)
+            ShowMessageDelegate showMessageDelegate = (string _message) =>
             {
                 Console.WriteLine(_message);
             };
