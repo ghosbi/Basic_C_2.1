@@ -14,8 +14,19 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
         
         public delegate int MinusDelegate(int a, int b);
         delegate void ShowMessageDelegate(string _message);
-        
+        delegate int RandomNumberDelegate();
         static void Main(string[] args)
+        {
+            RandomNumberDelegate randomNumberDelegate = delegate ()
+            {
+                return new Random().Next(0, 100);
+            };
+            int result4 = randomNumberDelegate.Invoke();
+            Console.WriteLine(result4);
+
+        }
+
+        static void Task9_3_12()
         {
             ShowMessageDelegate showMessageDelegate = delegate (string _message)
             {
@@ -25,9 +36,7 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             Console.Read();
 
 
-
         }
-
         static bool CheckLength(string _row)
         {
             if (_row.Length > 3)
