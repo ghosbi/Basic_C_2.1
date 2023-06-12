@@ -11,8 +11,23 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 {
     class Program // Объявление класса Program
     {
+        public delegate int MinusDelegate(int a, int b);
         static void Main(string[] args)
         {
+            
+        }
+
+        static int Minus(int a, int b)
+        {
+            return b - a;
+        }
+        static int Sum(int a, int b)
+        {
+            return a + b;
+        }
+        static void Theory()
+        {
+            /*
             Exception exception = new Exception("Собственное исключение");
 
             exception.Data.Add("Дата создания:", DateTime.Now);
@@ -36,7 +51,18 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             {
 
                 Console.WriteLine(ex.GetType());
-            }
+            } */
+
+            MinusDelegate minusDelegate = Minus;
+            minusDelegate += Sum;
+
+            minusDelegate -= Sum;
+            int result = minusDelegate.Invoke(3, 5);
+            int result1 = minusDelegate(6, 3);
+            int result2 = minusDelegate(5, 5);
+            Console.WriteLine(result);
+            Console.WriteLine(result1);
+            Console.WriteLine(result2);
         }
     }
 }
