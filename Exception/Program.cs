@@ -13,20 +13,19 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         
         public delegate int MinusDelegate(int a, int b);
-        
+        delegate void ShowMessageDelegate(string _message);
         
         static void Main(string[] args)
         {
-            Action showMessageDelegate = ShowMessage;
-            showMessageDelegate.Invoke();
+            ShowMessageDelegate showMessageDelegate = delegate (string _message)
+            {
+                Console.WriteLine(_message);
+            };
+            showMessageDelegate.Invoke("Hello World");
+            Console.Read();
 
-           Func<int,int,int,int> sumDelegate = Sum;
-            int result = sumDelegate.Invoke(1, 30, 120);
-            Console.WriteLine(result);
 
-            Predicate<string> checkLengthDelegate = CheckLength;
-            bool status = checkLengthDelegate.Invoke("Skill_Factory");
-            Console.WriteLine(status);
+
         }
 
         static bool CheckLength(string _row)
@@ -94,6 +93,17 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             Console.WriteLine(result);
             Console.WriteLine(result1);
             Console.WriteLine(result2);
+
+            Action showMessageDelegate = ShowMessage;
+            showMessageDelegate.Invoke();
+
+            Func<int, int, int, int> sumDelegate = Sum;
+            int result3 = sumDelegate.Invoke(1, 30, 120);
+            Console.WriteLine(result3);
+
+            Predicate<string> checkLengthDelegate = CheckLength;
+            bool status = checkLengthDelegate.Invoke("Skill_Factory");
+            Console.WriteLine(status);
         }
     }
 }
