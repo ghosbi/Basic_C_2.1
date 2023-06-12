@@ -11,20 +11,20 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 {
     class Program // Объявление класса Program
     {
-        delegate void ShowMessageDelegate();
+        
         public delegate int MinusDelegate(int a, int b);
-        delegate int SumDelegate(int a, int b, int c);
-        delegate bool CheckLengthDelegate(String row);
+        
+        
         static void Main(string[] args)
         {
-            ShowMessageDelegate showMessageDelegate = ShowMessage;
+            Action showMessageDelegate = ShowMessage;
             showMessageDelegate.Invoke();
 
-            SumDelegate sumDelegate = Sum;
+           Func<int,int,int,int> sumDelegate = Sum;
             int result = sumDelegate.Invoke(1, 30, 120);
             Console.WriteLine(result);
 
-            CheckLengthDelegate checkLengthDelegate = CheckLength;
+            Predicate<string> checkLengthDelegate = CheckLength;
             bool status = checkLengthDelegate.Invoke("Skill_Factory");
             Console.WriteLine(status);
         }
