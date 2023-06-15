@@ -15,10 +15,34 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
         public delegate int MinusDelegate(int a, int b);
         delegate void ShowMessageDelegate(string _message);
         delegate int RandomNumberDelegate();
+
+        delegate Car CarDelegate();
+        delegate void ChildInfo(Child child);
         static void Main(string[] args)
         {
+            CarDelegate carDelegate = BuildCar;
+            CarDelegate handlerLexus = LexusHandler;
+
+            ChildInfo childInfo = GetParent;
+
+            childInfo.Invoke(new Child());
             
         }
+        public static Car BuildCar()
+        {
+            return null;
+        }
+        public static Lexus LexusHandler()
+        {
+            return null;
+        }
+        public static void GetParent(Parent parent)
+        {
+            Console.WriteLine(parent);
+        }
+
+        
+
         static void Task9_3_13()
         {
             RandomNumberDelegate randomNumberDelegate = () => {
@@ -117,5 +141,21 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             bool status = checkLengthDelegate.Invoke("Skill_Factory");
             Console.WriteLine(status);
         }
+    }
+    class Car
+    {
+
+    }
+    class Lexus : Car
+    {
+
+    }
+    class Parent
+    {
+
+    }
+    class Child : Parent
+    {
+
     }
 }
