@@ -20,12 +20,7 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
         delegate void ChildInfo(Child child);
         static void Main(string[] args)
         {
-            CarDelegate carDelegate = BuildCar;
-            CarDelegate handlerLexus = LexusHandler;
-
-            ChildInfo childInfo = GetParent;
-
-            childInfo.Invoke(new Child());
+            
             
         }
         public static Car BuildCar()
@@ -42,7 +37,15 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
         }
 
         
+        static void Task_9_4_3()
+        {
+            CarDelegate carDelegate = BuildCar;
+            CarDelegate handlerLexus = LexusHandler;
 
+            ChildInfo childInfo = GetParent;
+
+            childInfo.Invoke(new Child());
+        }
         static void Task9_3_13()
         {
             RandomNumberDelegate randomNumberDelegate = () => {
