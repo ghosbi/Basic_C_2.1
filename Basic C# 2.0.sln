@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module_8_working_with_files
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exception", "Exception\Exception.csproj", "{1E90A990-95CF-4C38-B84D-3E3676E363C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{085BE182-871A-44EB-B88E-20CF6E53AEC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Interface.csproj", "{085BE182-871A-44EB-B88E-20CF6E53AEC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBot", "TelegramBot\TelegramBot.csproj", "{532377E2-1DDB-47B6-85DA-4A7978FB2F55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{085BE182-871A-44EB-B88E-20CF6E53AEC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{085BE182-871A-44EB-B88E-20CF6E53AEC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{085BE182-871A-44EB-B88E-20CF6E53AEC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{532377E2-1DDB-47B6-85DA-4A7978FB2F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532377E2-1DDB-47B6-85DA-4A7978FB2F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532377E2-1DDB-47B6-85DA-4A7978FB2F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532377E2-1DDB-47B6-85DA-4A7978FB2F55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
