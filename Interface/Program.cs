@@ -28,7 +28,41 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
         }
 
     }
-    public class Worker: IWorker
+
+    public class FileManager : IWriter1, IReader, IMailer
+    {
+        void IReader.Read()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMailer.SendEmail()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IWriter1.Write()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public interface IWriter1
+    {
+        void Write();
+    }
+
+    public interface IReader
+    {
+        void Read();
+    }
+
+    public interface IMailer
+    {
+        void SendEmail();
+    }
+
+    public class Worker : IWorker
     {
         void IWorker.Build()
         {
