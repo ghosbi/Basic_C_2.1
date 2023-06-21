@@ -19,13 +19,29 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
             ((IWriter)newMail).Writer("Хеллоу всем");
 
+            Worker worker = new Worker();
+
+            worker.Build();
+
             Console.ReadKey();
 
         }
-        
+
+    }
+    public class Worker: IWorker
+    {
+        public void Build()
+        {
+
+        }
     }
 
-    public class Mail:IWriter
+    public interface IWorker
+    {
+        public void Build();
+    }
+
+    public class Mail : IWriter
     {
         void IWriter.Writer(string message)
         {
