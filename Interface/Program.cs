@@ -21,7 +21,7 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
             Worker worker = new Worker();
 
-            worker.Build();
+            ((IWorker)worker).Build();
 
             Console.ReadKey();
 
@@ -30,7 +30,7 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     }
     public class Worker: IWorker
     {
-        public void Build()
+        void IWorker.Build()
         {
 
         }
@@ -38,7 +38,7 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
     public interface IWorker
     {
-        public void Build();
+        void Build();
     }
 
     public class Mail : IWriter
