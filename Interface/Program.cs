@@ -31,10 +31,42 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
             IMessenger<IPhone> viberInIphone = new Viber<Phone>();
 
+            var user = new User();
+            var account = new Account();
+
+            IUpdater<Account> updater = new UserService();
+
+            var userService = new UserService();
+            userService.Update(user);
 
         }
 
     }
+    public class UserService : IUpdater<User>
+    {
+        
+
+        public void Update(User entity)
+        {
+           
+        }
+    }
+
+    public class User
+    {
+
+    }
+
+    public class Account : User
+    {
+
+    }
+
+    public interface IUpdater<in T>
+    {
+        void Update(T entity);
+    }
+
     public class Viber<T> : IMessenger<T> where T : Phone, new()
     {
         public T DeviceInfo()
