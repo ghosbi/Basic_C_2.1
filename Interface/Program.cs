@@ -23,11 +23,43 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
             ((IWorker)worker).Build();
 
-            Console.ReadKey();
+           
+
+            IMessenger<Phone> viberInPhone = new Viber<Phone>();
+            IMessenger<IPhone> viberInIPhone = new Viber<IPhone>();
+
+            viberInIPhone.DeviceInfo();
+            viberInPhone.DeviceInfo();
 
         }
 
     }
+    public class Viber<T> : IMessenger<T> where T : Phone, new()
+    {
+        public T DeviceInfo()
+        {
+            T device = new T();
+            Console.WriteLine(device);
+            return new T();
+        }
+    }
+
+    public class Viber : IMessenger<Phone>
+    {
+        public Phone DeviceInfo()
+        {
+            return null;
+        }
+    }
+
+    public interface IMessenger <out T>
+    {
+        T DeviceInfo();
+    }
+    public class IPhone: Phone { }
+    public class Phone { }
+    public class Computer { }
+    
 
     public class ElectronicBook : IBook, IDevice
     {
