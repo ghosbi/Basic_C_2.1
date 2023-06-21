@@ -23,13 +23,14 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
 
             ((IWorker)worker).Build();
 
-           
-
             IMessenger<Phone> viberInPhone = new Viber<Phone>();
-            IMessenger<IPhone> viberInIPhone = new Viber<IPhone>();
+            viberInPhone.GetDeviceInfo(new Phone());
 
-            viberInIPhone.DeviceInfo();
-            viberInPhone.DeviceInfo();
+            IMessenger<IPhone> viberInIPhone = new Viber<IPhone>();
+            viberInIPhone.GetDeviceInfo(new IPhone());
+
+            IMessenger<IPhone> viberInIphone = new Viber<Phone>();
+
 
         }
 
@@ -42,6 +43,13 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
             Console.WriteLine(device);
             return new T();
         }
+
+        public void GetDeviceInfo(T device)
+        {
+            T device1 = new T();
+            Console.WriteLine(device1);
+            
+        }
     }
 
     public class Viber : IMessenger<Phone>
@@ -50,11 +58,16 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
         {
             return null;
         }
+
+        public void GetDeviceInfo(Phone device)
+        {
+            
+        }
     }
 
-    public interface IMessenger <out T>
+    public interface IMessenger <in T>
     {
-        T DeviceInfo();
+        void GetDeviceInfo(T device);
     }
     public class IPhone: Phone { }
     public class Phone { }
