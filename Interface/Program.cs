@@ -13,7 +13,31 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     class Program // Объявление класса Program
     {
 
+        static void Main(string[] args)
+        {
+            Mail newMail = new Mail();
+
+            ((IWriter)newMail).Writer("Хеллоу всем");
+
+            Console.ReadKey();
+
+        }
+        
     }
+
+    public class Mail:IWriter
+    {
+        void IWriter.Writer(string message)
+        {
+            Console.WriteLine(message);
+        }
+    }
+
+    public interface IWriter
+    {
+        void Writer(string message);
+    }
+
     public interface IManager
     {
         void Create();
@@ -26,22 +50,22 @@ namespace FirstApplication.ConsoleApp // Объявление пространс
     {
         public void Create()
         {
-            
+
         }
 
         public void Delete()
         {
-            
+
         }
 
         public void Read()
         {
-            
+
         }
 
         public void Update()
         {
-            
+
         }
     }
 }
