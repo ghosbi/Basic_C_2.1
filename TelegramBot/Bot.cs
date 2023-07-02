@@ -39,7 +39,7 @@ namespace TelegramBot
             _defaultMessageController = defaultMessageController;
         }
 
-      
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _telegramClient.StartReceiving(
