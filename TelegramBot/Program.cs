@@ -53,9 +53,10 @@ namespace TelegramBot
             {
                 DownloadFolder = "C:\\Users\\Pavel\\Downloads",
                 BotToken = "6364439783:AAH-Z6w8t3fOTvBb09ikQ1hPernrrpc_9yI",
-                AudioFileName = "audio",
+                AudioFileName = "audio1",
                 InputAudioFormat = "ogg",
-                OutputAudioFormat = "wav"
+                OutputAudioFormat = "wav",
+                InputAudioBitrate = 72000,
             };
         }
 

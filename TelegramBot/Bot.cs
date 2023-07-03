@@ -89,7 +89,7 @@ namespace TelegramBot
             Console.WriteLine(errorMessage);
 
             //Задержка перед повторным подключением
-            Console.WriteLine("Ожиаем 10 секунд перед повторным подключением");
+            Console.WriteLine("Ожидаем 10 секунд перед повторным подключением");
             Thread.Sleep(1000);
             return Task.CompletedTask;
         }

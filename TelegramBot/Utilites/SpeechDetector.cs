@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using TelegramBot.Extensions;
-using VoiceTexterBot.Extensions;
+using TelegramBot.Extensions;
 using Vosk;
 
 namespace TelegramBot.Utilites
