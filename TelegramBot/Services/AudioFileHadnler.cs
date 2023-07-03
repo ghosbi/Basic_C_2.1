@@ -8,7 +8,7 @@ using TelegramBot.Configuration;
 
 namespace TelegramBot.Services
 {
-    public class AudioFileHadnler
+    public class AudioFileHadnler: IFileHandler
     {
         private readonly AppSettings _appSettings;
         private readonly ITelegramBotClient _telegramBotClient;

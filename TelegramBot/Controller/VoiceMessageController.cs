@@ -29,7 +29,7 @@ namespace TelegramBot.Controller
             if (fileId == null)
                 return;
 
-            await _audioFileHandler.Downolad(fileId, ct);
+            await _audioFileHandler.Download(fileId, ct);
 
             await _telegramClient.SendTextMessageAsync(message.Chat.Id, $"Голсоовое сообщение загружено", cancellationToken: ct);
         }

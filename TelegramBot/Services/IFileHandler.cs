@@ -8,7 +8,7 @@ namespace TelegramBot.Services
 {
     public interface IFileHandler
     {
-        Task Downolad(string fileId, CancellationToken ct);
+        Task Download(string fileId, CancellationToken ct);
         string Process(string param);
     }
 }

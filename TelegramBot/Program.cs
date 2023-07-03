@@ -39,6 +39,8 @@ namespace TelegramBot
 
             //Регистрируем хранилище сессий
             services.AddSingleton<IStorage, MemoryStorage>();
+            // Регестрируем загрузку файлов
+            services.AddSingleton<IFileHandler, AudioFileHadnler>();
             //Регистрируем объект TelegramBotClient
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
             //Регистрируем постоянно активный сервис бота
@@ -49,7 +51,7 @@ namespace TelegramBot
         {
             return new AppSettings()
             {
-                DownloadFolder = "C:\\Users\\evmor\\Downloads",
+                DownloadFolder = "C:\\Users\\Pavel\\Downloads",
                 BotToken = "6364439783:AAH-Z6w8t3fOTvBb09ikQ1hPernrrpc_9yI",
                 AudioFileName = "audio",
                 InputAudioFormat = "ogg",
