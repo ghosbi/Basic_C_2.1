@@ -49,7 +49,10 @@ namespace TelegramBot
         {
             return new AppSettings()
             {
-                BotToken = "6364439783:AAH-Z6w8t3fOTvBb09ikQ1hPernrrpc_9yI"
+                DownloadFolder = "C:\\Users\\evmor\\Downloads",
+                BotToken = "6364439783:AAH-Z6w8t3fOTvBb09ikQ1hPernrrpc_9yI",
+                AudioFileName = "audio",
+                InputAudioFormat = "ogg",
             };
         }
 
