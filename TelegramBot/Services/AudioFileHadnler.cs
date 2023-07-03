@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using TelegramBot.Configuration;
+using TelegramBot.Utilites;
 
 namespace TelegramBot.Services
 {
@@ -38,8 +39,18 @@ namespace TelegramBot.Services
 
         public string Process(string languageCode)
         {
-            //Метод пока не реализован
-            throw new NotImplementedException();
+            string inputAudioPath = Path.Combine(_appSettings.DownloadFolder, $"{_appSettings.AudioFileName}.{_appSettings.InputAudioFormat}");
+            string outputAudioPath = Path.Combine(_appSettings.DownloadFolder, $"{_appSettings.AudioFileName}.{_appSettings.OutputAudioFormat}");
+
+            Console.WriteLine("Начинаем конвертацию....");
+            AudioConverter.TryConverter(inputAudioPath, outputAudioPath);
+            Console.WriteLine("Файл конвертирован");
+
+            Console.WriteLine("Начинаем распознавание....");
+            var speechText = SpeechDetector.DetectSpeech(outputAudioPath, _appSettings.InputAudioBitrate, languageCode);
+            Console.WriteLine("Файл распознан");
+
+            return speechText;
         }
 
     }
