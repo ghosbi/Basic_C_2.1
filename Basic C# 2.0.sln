@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Inte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramBot", "TelegramBot\TelegramBot.csproj", "{532377E2-1DDB-47B6-85DA-4A7978FB2F55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyUtilityBot", "MyUtilityBot\MyUtilityBot.csproj", "{5D796E41-F5F0-4053-827B-6FD24CFDAB92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyUtilityBot", "MyUtilityBot\MyUtilityBot.csproj", "{5D796E41-F5F0-4053-827B-6FD24CFDAB92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm12", "Algorithm12\Algorithm12.csproj", "{8C9A9328-0E0A-465A-B125-E36A22B99CEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{5D796E41-F5F0-4053-827B-6FD24CFDAB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D796E41-F5F0-4053-827B-6FD24CFDAB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D796E41-F5F0-4053-827B-6FD24CFDAB92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C9A9328-0E0A-465A-B125-E36A22B99CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C9A9328-0E0A-465A-B125-E36A22B99CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C9A9328-0E0A-465A-B125-E36A22B99CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C9A9328-0E0A-465A-B125-E36A22B99CEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
