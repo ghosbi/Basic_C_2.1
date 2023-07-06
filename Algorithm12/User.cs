@@ -20,6 +20,7 @@ namespace Algorithm12
                 if (IsShowAdsEligible(user))
                 {
                     Console.WriteLine();
+                    Console.WriteLine("Привет,{0}, сейчас тебе будет показана Реклама", user.Login);
                     Console.WriteLine("Посетите наш новый сайт с бесплатными играми free.games.for.a.fool.com");
                     //Остановка на 1 с
                     Thread.Sleep(1000);
@@ -37,6 +38,7 @@ namespace Algorithm12
                 else
                 {
                     Console.WriteLine();
+                    Console.WriteLine("Привет,{0}", user.Login);
                     Console.WriteLine("У {0} есть премиум, ему реклама не показана", user.Name);
                     //Остановка на 3с
                     Thread.Sleep(3000);
