@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Work_With_Files\" />
+  </ItemGroup>
+
 </Project>
