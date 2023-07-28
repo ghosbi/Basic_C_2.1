@@ -29,14 +29,36 @@ namespace HW_3
             Sasha.AddToCart(new Product("Хлеб"));
             Sasha.CreateOrder<HomeDelivery>(Sasha.Home_Address, Buyer.DelivType.PickPoint);
 
-
+            Employee German = new Employee("German", "Radikov");
 
 
         }
     }
+
+    class Employee
+    {
+        public string Name;
+        public string LastName;
+        public Employee(string name) { Name = name; }
+        public Employee(string name, string lastname) : this(name) { LastName = lastname; }
+    }
+
     abstract class Delivery // Доставка
     {
-        public string Address;
+        public string Address
+        {
+            get { return Address == null ? "Address is empty" : Address; }
+
+            set
+            {
+                if (Address == null)
+                {
+                    Console.WriteLine("Адрес не указан!");
+
+                }
+                else Address = value;
+            }
+        }
     }
 
     class Buyer // Покупатель
@@ -130,24 +152,22 @@ namespace HW_3
     class Product
     {
         public string ProductName;
-        string ProductID;
+        string Product_description;
         public Product(string productname)
         {
             ProductName = productname;
         }
     } //Товар
-    class Deliveryman // Курьер
+    class Deliveryman :Employee// Курьер
     {
-        string Name;
-        public Deliveryman(string name)
-        {
-            Name = name;
-        }
+       public Deliveryman(string name): base(name) { } 
+       public Deliveryman(string name, string lastname): base(name, lastname) { }
+        
     } 
 
     class HomeDelivery : Delivery // Доставка домой
     {
-        Deliveryman deliveryman = new Deliveryman("Andrey Kordonskih");
+        
     }
 
     class PickPointDelivery : Delivery // Доставка в пункт выдачи
