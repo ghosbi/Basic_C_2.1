@@ -232,7 +232,7 @@ public class Drive
     {
         Name = name;
         TotalSpace = totalSpace;
-        freeSpace = freeSpace;
+        FreeSpace = freeSpace;
     }
 
     public string Name { get; }

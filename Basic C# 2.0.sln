@@ -21,7 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramBot", "TelegramBot\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyUtilityBot", "MyUtilityBot\MyUtilityBot.csproj", "{5D796E41-F5F0-4053-827B-6FD24CFDAB92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm12", "Algorithm12\Algorithm12.csproj", "{8C9A9328-0E0A-465A-B125-E36A22B99CEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithm12", "Algorithm12\Algorithm12.csproj", "{8C9A9328-0E0A-465A-B125-E36A22B99CEF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Work_With_Files", "Work_With_Files\Work_With_Files.csproj", "{899068EE-F7FF-4629-9D83-A6CAFE01C99C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work_With_FIles_Repetition", "Work_With_FIles_Repetition\Work_With_FIles_Repetition.csproj", "{2FA438A2-6458-46D5-8F06-4D3B80F42C48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{8C9A9328-0E0A-465A-B125-E36A22B99CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C9A9328-0E0A-465A-B125-E36A22B99CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C9A9328-0E0A-465A-B125-E36A22B99CEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{899068EE-F7FF-4629-9D83-A6CAFE01C99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{899068EE-F7FF-4629-9D83-A6CAFE01C99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{899068EE-F7FF-4629-9D83-A6CAFE01C99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{899068EE-F7FF-4629-9D83-A6CAFE01C99C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA438A2-6458-46D5-8F06-4D3B80F42C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA438A2-6458-46D5-8F06-4D3B80F42C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA438A2-6458-46D5-8F06-4D3B80F42C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA438A2-6458-46D5-8F06-4D3B80F42C48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
